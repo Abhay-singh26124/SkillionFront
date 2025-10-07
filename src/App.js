@@ -14,7 +14,7 @@ const AuthPage = ({ setToken, setUser }) => {
         setMessage('');
         const endpoint = view === 'login' ? '/api/login' : '/api/signup';
         try {
-            const res = await axios.post(`http://localhost:5000${endpoint}`, { email, password });
+            const res = await axios.post(`https://resumeragbackend.onrender.com${endpoint}`, { email, password });
             const { token, user } = res.data;
             setToken(token);
             setUser(user);
@@ -71,8 +71,8 @@ const AppView = ({ user, token, handleLogout }) => {
     const [hasUploaded, setHasUploaded] = useState(false);
   
     const API_CONFIG = { headers: { Authorization: `Bearer ${token}` } };
-    const UPLOAD_URL = 'http://localhost:5000/api/upload';
-    const SEARCH_URL = 'http://localhost:5000/api/search';
+    const UPLOAD_URL = 'https://resumeragbackend.onrender.com/api/upload';
+    const SEARCH_URL = 'https://resumeragbackend.onrender.com/api/search';
   
     const handleFileChange = (e) => setSelectedFile(e.target.files[0]);
   
